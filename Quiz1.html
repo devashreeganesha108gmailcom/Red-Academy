@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+    </head>
+    <body> 
+        <div id="score"></div>
+        <div id="title"></div>
+        <div id="content"></div>
+        <script >
+            var jsonData;
+            var questionNumber = 0;
+            var score = 0;
+            
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest(); 
+            } else { 
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    myVar=setTimeout(startDisplayingTitle,2000,questionNumber);
+                }
+            }
+            xmlhttp.open("GET","http://localhost/QuizData.json",true);
+            xmlhttp.send();
+
+            function startDisplayingTitle(questionNumber){
+                jsonData = eval("("+xmlhttp.responseText+")");
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("title").innerHTML = jsonData.quizzes[0].title; 
+                myVar=setTimeout(startDisplayingQuestion,2000,questionNumber,jsonData);   
+            }
+
+            function startDisplayingQuestion(questionNumber,jsonData){
+                document.getElementById("content").innerHTML += jsonData.quizzes[0].questions[questionNumber].question + '<br>'         
+                                                            + '<button class="button" name="answer1" id="' + 'answer1' + questionNumber + '" onclick="myVar=setTimeout(myFunction, 2000,questionNumber);evaluateAnswer(0,questionNumber,score);makeButtonsDisabled();" >' 
+                                                            + jsonData.quizzes[0].questions[questionNumber].answers[0].content + '</button>'
+                                                            + '<button class="button" name="answer3" id="' + 'answer3' + questionNumber + '"  onclick="myVar=setTimeout(myFunction, 2000,questionNumber);evaluateAnswer(2,questionNumber,score);makeButtonsDisabled()" >' 
+                                                            + jsonData.quizzes[0].questions[questionNumber].answers[2].content + '</button>' + '<br>'
+                                                            + '<button class="button" name="answer2" id="' + 'answer2' + questionNumber + '" onclick="myVar=setTimeout(myFunction, 2000,questionNumber);evaluateAnswer(1,questionNumber,score);makeButtonsDisabled()" >' 
+                                                            + jsonData.quizzes[0].questions[questionNumber].answers[1].content + '</button>'
+           
+                                                            + '<button class="button" name="answer4" id="' + 'answer4' + questionNumber + '" onclick="myVar=setTimeout(myFunction, 2000,questionNumber);evaluateAnswer(3,questionNumber,score);makeButtonsDisabled()" >' 
+                                                            + jsonData.quizzes[0].questions[questionNumber].answers[3].content + '</button>' + '<br>';
+            }
+
+            function myFunction(questionNumber){
+                ++questionNumber;
+                if(questionNumber > 2)
+                    setInterval(quizComplete, 2000);
+                if(questionNumber < jsonData.quizzes[0].questions.length){
+                    document.getElementById("content").innerHTML += jsonData.quizzes[0].questions[questionNumber].question + '<br>'; 
+                    document.getElementById("content").innerHTML 
+                        += '<button class="button" name="answer1" id="' + 'answer1' + questionNumber + '" onclick="myVar=setTimeout(myFunction, 2000, ++questionNumber);evaluateAnswer(0,questionNumber,score);makeButtonsDisabled()" >' 
+                          + jsonData.quizzes[0].questions[questionNumber].answers[0].content + '</button>';
+                    document.getElementById("content").innerHTML 
+                        += '<button class="button" name="answer3" id="' + 'answer3' + questionNumber + '" onclick="myVar=setTimeout(myFunction, 2000, ++questionNumber);evaluateAnswer(2,questionNumber,score);makeButtonsDisabled()">' 
+                          + jsonData.quizzes[0].questions[questionNumber].answers[2].content + '</button>' + '<br>';
+                    document.getElementById("content").innerHTML 
+                        += '<button class="button" name="answer2" id="' + 'answer2' + questionNumber + '" onclick="myVar=setTimeout(myFunction, 2000, ++questionNumber);evaluateAnswer(1,questionNumber,score);makeButtonsDisabled()">' 
+                          + jsonData.quizzes[0].questions[questionNumber].answers[1].content + '</button>';
+                    document.getElementById("content").innerHTML 
+                        += '<button class="button" name="answer4" id="' + 'answer4' + questionNumber + '" onclick="myVar=setTimeout(myFunction, 2000, ++questionNumber);evaluateAnswer(3,questionNumber,score);makeButtonsDisabled()">' 
+                          + jsonData.quizzes[0].questions[questionNumber].answers[3].content + '</button>' + '<br>';
+                    clearTimeout(myVar);
+                } 
+            }
+            function makeButtonsDisabled(){
+                var buttonList = document.getElementsByClassName('button');
+                for (var j = 0; j < buttonList.length; j++) {
+                    buttonList[j].setAttribute("disabled", "disabled");
+                }
+            }
+            function evaluateAnswer(answerNumber,questionNumber,score){
+                if (jsonData.quizzes[0].questions[questionNumber].answers[parseInt(answerNumber)].value === true){
+                    document.getElementById("content").innerHTML += '<div name="correctanswer">Correct Answer</div>';
+                    var score = document.getElementById("score").innerHTML;
+                    ++score;
+                    document.getElementById("score").innerHTML = score;
+                    answerNumber += 1;
+                    document.getElementById("answer"+answerNumber+questionNumber).style.color = "green";
+                    document.getElementById("answer"+answerNumber+questionNumber).style.fontWeight = "bold";
+                }
+                else{
+                    document.getElementById("content").innerHTML += '<div name="wronganswer">Wrong Answer</div>';
+                    var score = document.getElementById("score").innerHTML;
+                    document.getElementById("score").innerHTML = score;
+                    answerNumber += 1;
+                    document.getElementById("answer"+answerNumber+questionNumber).style.color = "red";
+                    document.getElementById("answer"+answerNumber+questionNumber).style.fontWeight = "bold";
+                }
+            }
+            function quizComplete(){
+                window.location.href = "http://localhost/QuizOneComplete.html?score=" + document.getElementById("score").innerHTML;
+            }
+            
+        </script>
+    </body>
+</html>

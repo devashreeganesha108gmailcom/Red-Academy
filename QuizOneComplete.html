@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz 1 Complete</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    </head>
+    <body>
+        <div id="quizComplete">You successfully completed the Quiz 1</div>
+        <div id="scoreComplete"></div>
+        <div id="status"></div>
+        <script>
+        	var score = "score";
+        	var parameter = getParameterByName(score);
+        	document.getElementById("scoreComplete").innerHTML = "Your Score is : " + parameter;
+        	var status = checkPassOrFailed(parameter);
+        	document.getElementById("status").innerHTML = status;
+
+        	function getParameterByName(name) {
+			    url = window.location.href;
+			    name = name.replace(/[\[\]]/g, "\\$&");
+			    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			        results = regex.exec(url);
+			    if (!results) return null;
+			    if (!results[2]) return '';
+			    return decodeURIComponent(results[2].replace(/\+/g, " "));
+			}
+			function checkPassOrFailed(parameter){
+				var score = parseInt(parameter);
+				var totalScore = 3;
+				if( ((score/totalScore)*100) >= 50)
+					return "PASSED";
+				else
+					return "FAILED";
+			}
+        </script>
+    </body>
+</html>
