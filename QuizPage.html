@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Quiz</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    </head>
+    <body id="quizPage">
+        <div id="introduction">
+            <h1>Start</h1>
+            <button onclick="quizPage('Quiz1');">Quiz1</button>
+            <button onclick="quizPage('Quiz2');">Quiz2</button>
+        </div>
+        <script>
+            function quizPage(quiz){
+                if(quiz == 'Quiz1')
+                    window.location.href = "Quiz1.html";
+                if(quiz == 'Quiz2')
+                    window.location.href = "Quiz2.html";
+            }
+        </script>    
+    </body>
+    
+</html>
