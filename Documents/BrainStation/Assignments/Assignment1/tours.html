@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>My Favorite Band</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+            crossorigin="anonymous">
+        <link href="styles.css" rel="stylesheet" type="text/css" media="screen">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    </head>
+    <header>
+        <div class="row">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top d-flex justify-content-start">
+                <a class="navbar-brand" href="#">BandStation</a>
+                <ul class="navbar-nav">
+                    <li class="nav-item" style="display:inline-block;">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item" style="display:inline-block;">
+                        <a class="nav-link" href="music.html">Music</a>
+                    </li>
+                    <li class="nav-item" style="display:inline-block;">
+                        <a class="nav-link" href="tours.html">Tours</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <body>
+        <div class="container-fluid pt-5">
+            <div class="row">
+                <main id="pictures" class="col-8 offset-2">
+                    <h2 style="font-family: Bradley Hand, cursive;">Tours</h2>
+                    <div class="row text-center">
+                        <p>The following table contains the information about all the tours.</p>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Venue</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a class="venue" href="https://rogersarena.com/">Rogers Arena, Vancouver, BC, Canada</a></td>
+                                    <td>2018-01-25</td>
+                                    <td>06:00pm</td>
+                                </tr>
+                                <tr>
+                                    <td><a class="venue" href="http://covapp.vancouver.ca/parkfinder/parkdetail.aspx?inparkid=165">Nat Bailey Stadium, Calgary, AB, Canada</a></td>
+                                    <td>2018-02-23</td>
+                                    <td>10:00pm</td>
+                                </tr>
+                                <tr>
+                                    <td><a class="venue" href="https://thunderbirdarena.ubc.ca/">Thunderbird Arena, Seattle, Washington, USA</a></td>
+                                    <td>2018-03-02</td>
+                                    <td>09:00pm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <a href="http://www.ticketmaster.com">
+                                <img id="ticket" src="https://cdn2.iconfinder.com/data/icons/travel-glyphs-2/128/52-512.png" alt="ticket">
+                            </a>
+                        </div>
+                        <div class="col-xs-9 offset-sm-4 text-center" style="font-family:american-typewriter">
+                            Get Your Tickets Now!
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
+    <script>
+        $("#ticket").mouseover(function () {
+            $("#ticket").animate({
+                height: '+=150px',
+                width: '+=150px'
+            });
+        });
+        $("#ticket").mouseleave(function () {
+            $("#ticket").animate({
+                height: '-=150px',
+                width: '-=150px'
+            });
+        });
+    </script>
+</html>

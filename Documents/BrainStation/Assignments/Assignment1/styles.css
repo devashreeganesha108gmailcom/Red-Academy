@@ -1,0 +1,106 @@
+.jumbotron {
+    background-image: url(https://www.alternativenation.net/wp-content/uploads/2016/06/gnroriginalnewest.jpg);    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 300px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+aside {
+    background-color: whitesmoke;
+}
+a {
+    text-decoration: none;
+}
+#ticket {
+    width: 100px;
+    height: 50px;
+}
+.go {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+p {
+    font-family: Courier, monospace;
+}
+.band-bio {
+    margin-top: 10px;
+}
+#rockon {
+    width: 50%;
+    height: 350px;
+    position: relative;
+}
+
+img {
+    width: 98%;
+    height: 100%;
+}
+iframe {
+    margin: 0;
+    padding: 0;
+    width: 98%;
+}
+
+#pictures {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+table {
+    text-align: left;
+}
+h2 {
+    position: relative;
+    left: 40%;
+    display: block;
+}
+.venue {
+    text-decoration: none;
+}
+.nav-link {
+   color: black;
+   
+}
+@media only screen and (max-width: 360px) {
+    .navbar-brand {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+    }
+    #frontpagejumbotron{
+        margin-top: 175px;
+    }
+}
+@media only screen and (max-width: 412px) {
+    .navbar-brand {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+    }
+    #frontpagejumbotron{
+        margin-top: 175px;
+    }
+}
+@media only screen and (max-width: 414px) {
+    .navbar-brand {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+    }
+    #frontpagejumbotron{
+        margin-top: 175px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    #frontpagejumbotron{
+        margin-top: 55px;
+    }
+}
