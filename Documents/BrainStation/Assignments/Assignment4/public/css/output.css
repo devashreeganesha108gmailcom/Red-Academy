@@ -1,0 +1,13 @@
+body {
+  font-family: American Typewriter, sans-serif; }
+
+/*# filtered movie names css settings */
+.filteredmovienames {
+  display: inline-block;
+  height: 50px; }
+
+/*# settings for container that has movie image and title */
+.movieContainer {
+  width: 220px; }
+
+

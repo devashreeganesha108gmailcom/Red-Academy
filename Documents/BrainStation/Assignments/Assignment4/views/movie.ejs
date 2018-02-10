@@ -1,0 +1,26 @@
+
+<html>
+    <head>
+        <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Movie Info</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" 
+              integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+              crossorigin="anonymous">
+        <link href="/css/output.css" rel="stylesheet" type="text/css" media="screen">
+    </head>
+    <body class="movie">
+        <%- include partials/nav %>
+        <div class="container">
+            <h1><%= movieInfo.original_title %></h1> <%/* displaying the movie title */%>
+            <h2>Movie Synopsis</h2>
+            <span><%= movieInfo.release_date %></span><br> <%/* displaying the movie release date */%>
+            <span><%= movieInfo.status %></span> <%/* displaying the movie status */%> 
+            <div class="row">
+                <%/* displaying the movie image */%>
+                <img class="col-xs-12 col-sm-3" src="<%= movieImages[keyOfImage].attribs['data-src'] %>" alt="<%= movieInfo.original_title %>"> 
+                <p class="col-xs-12 col-sm-9"><%= movieInfo.overview %></p> <%/* displaying the movie overview */%>
+            </div>
+        </div>
+    </body>
+</html>

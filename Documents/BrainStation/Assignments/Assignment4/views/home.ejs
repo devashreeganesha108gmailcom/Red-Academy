@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>List of Movies</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="/css/output.css" rel="stylesheet" type="text/css" media="screen">        
+  </head>
+  <body class="homepage">
+      <%- include partials/nav %>
+      <div class="row text-center m-auto">
+          <% 
+            //loops through the movieNames object 
+            for (key in movieNames) {
+              //checks to see if the value at the key exists or is not null or undefined
+              if (movieNames.hasOwnProperty(key) && movieNames[key].attribs) { %>
+                <%- include partials/movies %> 
+          <%  }
+            } 
+          %>
+      </div>  
+  </body>
+</html>

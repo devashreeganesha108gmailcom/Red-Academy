@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>List of Movies</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="/css/output.css" rel="stylesheet" type="text/css" media="screen">
+    </head>
+    <body class="filtered">
+        <%- include partials/nav %>
+        <div class="row text-center m-auto">
+            <%         
+                /* initially the movie is not found so value of boolean will be false */ 
+                var movieFound = false;
+                //loop through the movieNames array to see if there is a match
+                for (key in movieNames) {
+                    //checks to see if movieNames has the key and attribs property
+                    if(movieNames.hasOwnProperty(key) && movieNames[key].attribs) {
+                        //catches the title of the movie
+                        let movieTitle = movieNames[key].attribs.title.toLowerCase();
+                        //stores all the words inside an array of words
+                        let wordsInTitle = movieTitle.split(" ");
+                        //boolean value to check if the movie entered in the search bar contains spaces
+                        let includesSpaces = search.includes(" ");                    
+                        //conditional switch statement that executes different statements of code based on 
+                        //if spaces are included or not
+                        switch (includesSpaces) {
+                            case true:
+                                //checks to see if the search term is in the movie title
+                                if(movieTitle.includes(search.toLowerCase()))  { 
+                                    movieFound = true; 
+                                    %>
+                                    <% include partials/movies %> 
+                             <%     break;
+                                }
+                            case false:
+                                //checks to see if the first character of the movie name and search query works
+                                if(wordsInTitle[0].charAt(0)===search.charAt(0)){
+                                    //after checking if first character matches checks to see i words  
+                                    if(wordsInTitle[0].includes(search.toLowerCase())) { 
+                                        movieFound = true; %>   
+                                        <% include partials/movies %> 
+                                    <%    break;
+                                    }
+                                }
+                        } 
+                    }
+                }
+                //condition to check if movie is not found
+                if(!movieFound){ %>
+                    <h1>No Results Were Found</h1>
+             <% } %>
+        </div>        
+    </body>
+</html>
