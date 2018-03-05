@@ -1,0 +1,59 @@
+html {
+  background-color: black; }
+
+.title {
+  font-family: Georgia,'Times New Roman',Times,serif;
+  color: white;
+  margin-bottom: 30px; }
+
+.currentsong {
+  font-family: 'Times New Roman', Times, serif,sans-serif;
+  color: white; }
+
+.collapsible-header {
+  display: flex;
+  justify-content: space-between; }
+
+.visualizer {
+  background-image: url("https://camo.githubusercontent.com/b40783502e8f644e972ad8e9532b039d0f4d304d/687474703a2f2f7265732e636c6f7564696e6172792e636f6d2f64766b7866677072632f696d6167652f75706c6f61642f76313531313236343138392f67697068795f325f6568696434762e676966");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center 100px;
+  background-attachment: fixed;
+  margin-bottom: 0; }
+
+.collapsible {
+  border-radius: 10px; }
+
+.changesong {
+  border-radius: 10px; }
+
+.listtitle {
+  font-size: 20px; }
+
+.container {
+  border-radius: 10px; }
+
+.collapsible-header i {
+  font-size: 1.6rem;
+  display: inline-block;
+  text-align: center;
+  margin-left: -13px;
+  margin-top: -4px; }
+
+.individual {
+  width: 30px;
+  border-radius: 25%;
+  border-style: outset; }
+
+.audiospectrum {
+  margin-top: 80px;
+  margin-bottom: 70px; }
+
+.controlbutton {
+  border-style: outset; }
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,37 @@
+{
+  "name": "audio-player-fullstack",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "ajv": "^6.2.0",
+    "d3": "4.10.2",
+    "jquery": "^3.3.1",
+    "loadash": "^1.0.0",
+    "lodash.chunk": "^4.2.0",
+    "materialize-css": "^0.100.2",
+    "react": "^16.2.0",
+    "react-audio-spectrum": "0.0.9",
+    "react-dom": "^16.2.0",
+    "react-materialize": "^2.0.6",
+    "react-progressbar": "^15.4.1",
+    "react-scripts": "1.1.1",
+    "react-video-cover": "^1.1.0",
+    "redux": "^3.7.2",
+    "rollup": "^0.39.2",
+    "sass": "^1.0.0-beta.5.2",
+    "video-react": "^0.9.4"
+  },
+  "path": "test/multidep_modules",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "multidep": "^2.0.2",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-uglify": "^1.0.1"
+  }
+}
